@@ -11,20 +11,21 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PersonaServiceImpl extends BaseServiceImpl<Persona, Long> implements PersonaService{
+public class PersonaServiceImpl extends BaseServiceImpl<Persona, Long> implements PersonaService {
 
     @Autowired
     private PersonaRepository personaRepository;
 
-    public PersonaServiceImpl(BaseRepository<Persona, Long> baseRepository){
+    public PersonaServiceImpl(BaseRepository<Persona, Long> baseRepository) {
         super(baseRepository);
     }
 
     @Override
-    public List<Persona> search(String filtro) throws Exception{
+    public List<Persona> search(String filtro) throws Exception {
         try {
-            //List<Persona> personas = personaRepository.findByNombreContainingOrApellidoContaining(filtro, filtro);
-            //List<Persona> personas = personaRepository.search(filtro);
+            // List<Persona> personas =
+            // personaRepository.findByNombreContainingOrApellidoContaining(filtro, filtro);
+            // List<Persona> personas = personaRepository.search(filtro);
             List<Persona> personas = personaRepository.searchNativo(filtro);
             return personas;
         } catch (Exception e) {
@@ -33,10 +34,11 @@ public class PersonaServiceImpl extends BaseServiceImpl<Persona, Long> implement
     }
 
     @Override
-    public Page<Persona> search(String filtro, Pageable pageable) throws Exception{
+    public Page<Persona> search(String filtro, Pageable pageable) throws Exception {
         try {
-            //Page<Persona> personas = personaRepository.findByNombreContainingOrApellidoContaining(filtro, filtro);
-            //Page<Persona> personas = personaRepository.search(filtro);
+            // Page<Persona> personas =
+            // personaRepository.findByNombreContainingOrApellidoContaining(filtro, filtro);
+            // Page<Persona> personas = personaRepository.search(filtro);
             Page<Persona> personas = personaRepository.searchNativo(filtro, pageable);
             return personas;
         } catch (Exception e) {

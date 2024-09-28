@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
-import org.example.persona.entities.Autor;
 import org.example.persona.entities.Base;
 import org.example.persona.repositories.BaseRepository;
 import org.springframework.data.domain.Page;
@@ -12,10 +11,10 @@ import org.springframework.data.domain.Pageable;
 
 import jakarta.transaction.Transactional;
 
-public abstract class BaseServiceImpl <E extends Base, ID extends Serializable> implements BaseService<E, ID> {
-    protected BaseRepository<E,ID> baseRepository;
+public abstract class BaseServiceImpl<E extends Base, ID extends Serializable> implements BaseService<E, ID> {
+    protected BaseRepository<E, ID> baseRepository;
 
-    public BaseServiceImpl(BaseRepository<E,ID> baseRepository){
+    public BaseServiceImpl(BaseRepository<E, ID> baseRepository) {
         this.baseRepository = baseRepository;
     }
 
@@ -72,7 +71,7 @@ public abstract class BaseServiceImpl <E extends Base, ID extends Serializable> 
             if (baseRepository.existsById(id)) {
                 baseRepository.deleteById(id);
                 return true;
-            }else {
+            } else {
                 throw new Exception("No existe esa persona");
             }
         } catch (Exception e) {

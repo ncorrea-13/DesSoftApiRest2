@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-public abstract class BaseControllerImpl <E extends Base, S extends BaseServiceImpl<E, Long>> implements BaseController<E, Long> {
-    
+
+public abstract class BaseControllerImpl<E extends Base, S extends BaseServiceImpl<E, Long>>
+        implements BaseController<E, Long> {
+
     @Autowired
     protected S servicio;
 
@@ -76,4 +78,5 @@ public abstract class BaseControllerImpl <E extends Base, S extends BaseServiceI
                     .body("{\"error\":\"Error, porfavor intente más tarde\" \"}");
         }
     }
+
 }
